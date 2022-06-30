@@ -6,6 +6,8 @@ The screen will show the data received from SimHub. Here is a sample of the disp
 
 ![Leaderboard Screenshot](./leader.jpg)
 
+The code is based on the [BRT_AN_025 Example Code](https://github.com/Bridgetek/EVE-MCU-BRT_AN_025-Example-Pico) library.
+
 ## Test Program
 
 It is not always easy to setup the correct data from SimHub. There is a python script (for python 3) in
@@ -97,7 +99,7 @@ set(DISPLAY_RES WVGA)
 
 A screenshot can be taken by defining the ENABLE_SCREENSHOT macro. To take a screenshot, connect to the stdio serial port and send a fake SimHub command "!!" (two exclamation marks). 
 
-The screenshot sends the data from the screen to the stdio port as a binary stream. The display will pause for up-to a minute to allow the data to be sent. It can be captured with a terminal emulator. The data is in the format PPM and is bookended by the string "PPM start\n" and "PPM end\n". This muse be stripped before use.
+The screenshot sends the data from the screen to the stdio port as a binary stream. The display will pause for up-to a minute to allow the data to be sent. It can be captured with a terminal emulator. The data is in the format PPM and is bookended by the string "PPM start\n" and "PPM end\n". These must be stripped before use. See the explanation of how this works in BRT_AN_014 FT81X Simple PIC Library Examples.
 
 To convert the screenshot from the PPM format to JPG the following command can be used within Imagemagick to make the conversion:
 ```
